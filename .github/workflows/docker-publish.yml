@@ -19,7 +19,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: 
   # github.repository as <account>/<repo>
-  IMAGE_NAME: yukikurosawadev/DEBIAN_ARCHIVE_KIT
+  IMAGE_NAME: yukikurosawadev/debian_archive_kit
 
 
 jobs:
