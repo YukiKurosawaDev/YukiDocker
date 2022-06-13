@@ -17,9 +17,9 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: 
+  REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: AA/debian_archive_kit
+  IMAGE_NAME: ${{ secrets.DOCKER_USER }}/debian_archive_kit
 
 
 jobs:
