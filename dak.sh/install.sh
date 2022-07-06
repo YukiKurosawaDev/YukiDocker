@@ -1,19 +1,35 @@
 #! /bin/bash
 
 # INITIALIZE ENVIRONMENT
-apt update
+echo -n UPDATING PACKAGE LISTS ... 
+apt update 1>/dev/null 2>&1
+echo DONE
 
 # INSTALL PACKAGES
-apt install postgresql-14 postgresql-14-debversion -y
-cp /dak.sh/postgresql.conf /etc/postgresql/14/main/postgresql.conf
-cp /dak.sh/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
+echo -n INSTALLING postgresql ...
+apt install postgresql-14 postgresql-14-debversion -y 1>/dev/null 2>&1
+echo DONE
 
-service postgresql restart
+echo -n CONFIGURING postgresql ...
+cp /dak.sh/postgresql.conf /etc/postgresql/14/main/postgresql.conf 1>/dev/null 2>&1
+cp /dak.sh/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf 1>/dev/null 2>&1
+echo DONE
+
+echo -n RESTARTING postgresql ...
+service postgresql restart 1>/dev/null 2>&1
+echo DONE
+
+echo -n CHANGING postgresql SUPER PASSWORD ...
 echo "ALTER USER postgres WITH PASSWORD 'postgres';"| su - postgres -c psql
+echo DONE
 
-apt install nginx -y
+echo -n INSTALLING nginx ...
+apt install nginx -y 1>/dev/null 2>&1
+echo DONE
 
 # CLEAN ENVIRONMENT
-apt autoremove -y
-apt clean
-rm -rvf /var/lib/apt/lists/*
+echo -n REMOVING TEMP FILES ...
+apt autoremove -y 1>/dev/null 2>&1
+apt clean 1>/dev/null 2>&1
+rm -rvf /var/lib/apt/lists/* 1>/dev/null 2>&1
+echo DONE
