@@ -18,6 +18,7 @@ COPY apt.sh /apt.sh
 RUN /apt.sh/updatepkg.sh
 COPY dak.sh /dak.sh
 RUN /dak.sh/install.sh
+RUN /dak.sh/configure.sh
 
 # IMAGE ENTRY
 ENTRYPOINT [ "/dak.sh/start.sh" ]
