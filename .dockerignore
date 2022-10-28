@@ -24,6 +24,6 @@
 **/values.dev.yaml
 README.md
 build.bat
-**/*.gpg
-**/*.asc
-**/*.pgp
+# **/*.gpg
+# **/*.asc
+# **/*.pgp
