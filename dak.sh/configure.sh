@@ -24,5 +24,6 @@ sudo ln -s /srv/dak/etc/dak.conf /etc/dak/dak.conf 1>/dev/null 2>&1
 chown -Rv dak:ftpmaster /srv/dak 1>/dev/null 2>&1
 cd /dak
 setup/dak-setup.sh 1>/dev/null 2>&1
+mkdir -p /srv/dak/keyrings/s3kr1t/dot-gnupg
 echo 'export PATH="/srv/dak/bin:${PATH}"' > ~/.bashrc
 echo DONE

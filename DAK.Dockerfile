@@ -20,5 +20,9 @@ COPY dak.sh /dak.sh
 RUN /dak.sh/install.sh
 RUN /dak.sh/configure.sh
 
+# DAK DEVELOPER CONFIGURATIONS
+COPY dak.dev /dak.dev
+RUN /dak.dev/init-dev.sh
+
 # IMAGE ENTRY
 ENTRYPOINT [ "/dak.sh/start.sh" ]
