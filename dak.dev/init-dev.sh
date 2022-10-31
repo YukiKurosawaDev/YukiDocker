@@ -28,6 +28,16 @@ $USER_CMD $DAK admin architecture add amd64 "KSLinux 22.04.1 AMD64" 1>/dev/null 
 
 $USER_CMD $DAK admin suite add-all-arches jammy 22.04.1 origin=KSLinux label=Focal codename=focal signingkey=451DD5811062DFC93DF54EEC259531ED17EE37C1 1>/dev/null 2>&1
 
+$USER_CMD $DAK admin component rm main 1>/dev/null 2>&1
+$USER_CMD $DAK admin component rm contrib 1>/dev/null 2>&1
+$USER_CMD $DAK admin component rm non-free 1>/dev/null 2>&1
+$USER_CMD $DAK admin component rm non-free-firmware 1>/dev/null 2>&1
+
+$USER_CMD $DAK admin component add main main 100 1>/dev/null 2>&1
+$USER_CMD $DAK admin component add restricted restricted 110 1>/dev/null 2>&1
+$USER_CMD $DAK admin component add universe universe 120 1>/dev/null 2>&1
+$USER_CMD $DAK admin component add multiverse multiverse 130 1>/dev/null 2>&1
+
 $USER_CMD $DAK admin s-c add jammy main restricted universe multiverse 1>/dev/null 2>&1
 
 $USER_CMD $DAK init-dirs 1>/dev/null 2>&1
@@ -36,3 +46,7 @@ $USER_CMD $DAK generate-packages-sources2 1>/dev/null 2>&1
 
 $USER_CMD $DAK generate-release 1>/dev/null 2>&1
 echo "DONE"
+
+debootstrap --no-check-gpg jammy /test file:///srv/dak/ftp 1>/dev/null 2>&1
+
+rm -rvf /test 1>/dev/null 2>&1
