@@ -114,6 +114,7 @@ add_package libssl3
 add_package libmpfr6
 add_package libsigsegv2
 add_package libterm-readkey-perl
+add_package libterm-readline-perl-perl
 add_package perl
 add_package libperl5.34
 add_package perl-modules-5.34
@@ -122,6 +123,11 @@ add_package libgdbm6
 add_package grep
 add_package libpcre3
 add_package libsmartcols1
+add_package base-passwd
+add_package libdebconfclient0
+add_package mawk
+add_package init-system-helpers
+add_package gpgv
 
 $DAK generate-packages-sources2 1>/dev/null 2>&1
 $DAK generate-release 1>/dev/null 2>&1
@@ -129,8 +135,47 @@ $DAK generate-release 1>/dev/null 2>&1
 debootstrap --no-check-gpg jammy /test http://localhost/kslinux
 cp -r /test.tmp /test/pkgs
 
+cat > /test1/etc/passwd << "EOF"
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/dev/null:/usr/bin/false
+daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
+messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
+uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
+nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false
+EOF
+
+cat > /test1/etc/group << "EOF"
+root:x:0:
+bin:x:1:daemon
+sys:x:2:
+kmem:x:3:
+tape:x:4:
+tty:x:5:
+daemon:x:6:
+floppy:x:7:
+disk:x:8:
+lp:x:9:
+dialout:x:10:
+audio:x:11:
+video:x:12:
+utmp:x:13:
+usb:x:14:
+cdrom:x:15:
+adm:x:16:
+messagebus:x:18:
+input:x:24:
+mail:x:34:
+kvm:x:61:
+uuidd:x:80:
+wheel:x:97:
+users:x:999:
+nogroup:x:65534:
+EOF
+
+touch /test/etc/shadow
+
 chroot /test /bin/bash
 
-nano /test/debootstrap/debootstrap.log
+#nano /test/debootstrap/debootstrap.log
 
 /bin/bash
