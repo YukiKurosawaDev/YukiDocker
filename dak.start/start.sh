@@ -117,7 +117,7 @@ add_package libterm-readkey-perl
 add_package perl
 add_package libperl5.34
 add_package perl-modules-5.34
-add_package perl-modules-5.34
+add_package libgdbm-compat4
 add_package libgdbm6
 add_package grep
 add_package libpcre3
