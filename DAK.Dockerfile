@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:kinetic-20220830
 
 LABEL MAINTAINER="YukiKurosawaDev"
 
