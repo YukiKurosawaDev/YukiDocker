@@ -12,6 +12,7 @@ DI="$DAK import -s jammy main "
 apt update 1>/dev/null 2>&1
 
 cd /home/dak
+mkdir /test.tmp
 
 function add_package()
 {
@@ -19,53 +20,114 @@ function add_package()
     $APT $1 1>/dev/null 2>&1
     $APTS $1 1>/dev/null 2>&1
     DEBO=$(ls *.deb)
-    #echo $DEBO
+    echo $DEBO
     DEB=$(echo $DEBO| sed -e s/%3a/-/)
     #echo $DEB
     mv $DEBO $DEB 1>/dev/null 2>&1
+    cp $DEB /test.tmp/$DEB
     $DI *.dsc
     $DI *.deb
     rm -rvf *.* 1>/dev/null 2>&1
     echo "DONE"
 }
 
-add_package base-files
-
-add_package libc6
-add_package libc-bin
-
-add_package bash
-add_package dash
-add_package libtinfo6
-
-add_package coreutils
-
-add_package mount
-add_package libmount1
-add_package libblkid1
-
-add_package dpkg
-add_package libselinux1
-add_package zlib1g
-add_package libpcre2-8-0
-add_package libzstd1
-add_package liblzma5
-add_package libbz2-1.0
-
-add_package tar
-add_package libacl1
-
-add_package diffutils
-
-add_package apt
-
-add_package adduser
-
+add_package	adduser
+add_package	apt
+add_package	base-files
+add_package	bash
+add_package	coreutils
+add_package	dash
+add_package	debconf
+add_package	debianutils
+add_package	diffutils
+add_package	dpkg
+add_package	gawk
+add_package	gcc-12-base
+add_package	gpg
+add_package	libacl1
+add_package	libapt-pkg6.0
+add_package	libattr1
+add_package	libaudit1
+add_package	libblkid1
+add_package	libbz2-1.0
+add_package	libc6
+add_package	libc-bin
+add_package	libcrypt1
+add_package	libgcc-s1
+add_package	libgcrypt20
+add_package	libgmp10
+add_package	libgnutls30
+add_package	libgpg-error0
+add_package	liblz4-1
+add_package	liblzma5
+add_package	libmount1
+add_package	libpam0g
+add_package	libpam-modules
+add_package	libpcre2-8-0
+add_package	libseccomp2
+add_package	libselinux1
+add_package	libsemanage2
+add_package	libstdc++6
+add_package	libsystemd0
+add_package	libtinfo6
+add_package	libzstd1
+add_package	mount
+add_package	ncurses-bin
+add_package	passwd
+add_package	perl-base
+add_package	sed
+add_package	tar
+add_package	ubuntu-keyring
+add_package	zlib1g
+add_package libcap2
+add_package libxxhash0
+add_package libp11-kit0
+add_package libidn2-0
+add_package libunistring2
+add_package libtasn1-6
+add_package libnettle8
+add_package libhogweed6
+add_package libffi8
+add_package gpgconf
+add_package libassuan0
+add_package libreadline8
+add_package libsqlite3-0
+add_package libaudit-common
+add_package libcap-ng0
+add_package libsemanage-common
+add_package libsepol2
+add_package libdb5.3
+add_package libtirpc3
+add_package libpam-modules-bin
+add_package libudev1
+add_package bash-completion
+add_package readline-common
+add_package libgssapi-krb5-2
+add_package libtirpc-common
+add_package libnsl2
+add_package libcom-err2
+add_package libk5crypto3
+add_package libkrb5-3
+add_package libkrb5support0
+add_package libkeyutils1
+add_package libssl3
+add_package libmpfr6
+add_package libsigsegv2
+add_package libterm-readkey-perl
+add_package perl
+add_package libperl5.34
+add_package perl-modules-5.34
+add_package perl-modules-5.34
+add_package libgdbm6
+add_package grep
+add_package libpcre3
+add_package libsmartcols1
 
 $DAK generate-packages-sources2 1>/dev/null 2>&1
 $DAK generate-release 1>/dev/null 2>&1
 
-debootstrap --no-check-gpg jammy /test file:///srv/dak/ftp
+debootstrap --no-check-gpg jammy /test http://localhost/kslinux
+cp -r /test.tmp /test/pkgs
 
 chroot /test /bin/bash
 
