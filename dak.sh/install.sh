@@ -39,6 +39,10 @@ echo -n "INSTALLING nano ... "
 apt install nano -y 1>/dev/null 2>&1
 echo DONE
 
+echo -n "INSTALLING dialog ... "
+apt install dialog -y 1>/dev/null 2>&1
+echo DONE
+
 echo -n "INSTALLING debootstrap ... "
 apt install debootstrap -y 1>/dev/null 2>&1
 echo DONE
