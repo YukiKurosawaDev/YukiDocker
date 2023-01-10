@@ -15,7 +15,7 @@ echo DONE
 
 echo -n "CHANGING PACKAGE SOURCES ... "
 rm -vf /etc/apt/sources.list 1>/dev/null 2>&1
-mv /apt.sh/sources.list /etc/apt/sources.list 1>/dev/null 2>&1
+cp /apt.sh/sources.list /etc/apt/sources.list 1>/dev/null 2>&1
 echo DONE
 
 echo -n "UPDATING PACKAGE LISTS AND PACKAGES ... "

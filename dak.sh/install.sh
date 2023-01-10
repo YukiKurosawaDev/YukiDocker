@@ -25,6 +25,7 @@ echo DONE
 
 echo -n "INSTALLING nginx ... "
 apt install nginx -y 1>/dev/null 2>&1
+cat /dak.sh/nginx.conf > /etc/nginx/nginx.conf 1>/dev/null 2>&1
 echo DONE
 
 echo -n "INSTALLING git ... "
@@ -51,6 +52,13 @@ echo -n "INSTALLING dak Dependencies ... "
 apt install python3-psycopg2 python3-pip python3-apt gnupg dpkg-dev lintian \
 binutils-multiarch python3-yaml less python3-ldap python3-pyrss2gen python3-rrdtool \
 symlinks python3-debian python3-debianbts python3-tabulate -y 1>/dev/null 2>&1
+mkdir ~/.pip/ 1>/dev/null 2>&1
+cat > ~/.pip/pip.conf <<EOF
+[global]
+index-url = https://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host = mirrors.aliyun.com
+EOF
 pip install SQLAlchemy==1.3.24 1>/dev/null 2>&1
 echo DONE
 
