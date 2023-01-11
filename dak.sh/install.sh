@@ -25,7 +25,7 @@ echo DONE
 
 echo -n "INSTALLING nginx ... "
 apt install nginx -y 1>/dev/null 2>&1
-cat /dak.sh/nginx.conf > /etc/nginx/nginx.conf 1>/dev/null 2>&1
+cat /dak.sh/nginx.conf > /etc/nginx/nginx.conf
 echo DONE
 
 echo -n "INSTALLING git ... "

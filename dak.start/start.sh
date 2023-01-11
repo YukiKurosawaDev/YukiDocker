@@ -62,7 +62,7 @@ cd /home/dak
 mkdir /test.tmp
 
 OK=0
-ALL=97
+ALL=116
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Importing Packages"
 
@@ -189,6 +189,25 @@ add_package libdebconfclient0
 add_package mawk
 add_package init-system-helpers
 add_package gpgv
+add_package pinentry-curses
+add_package gpg-agent
+add_package pinentry-curses 
+add_package libnpth0
+add_package findutils
+add_package libncursesw6
+add_package nano
+add_package ncurses-base
+add_package ncurses-term
+add_package ncurses-bin
+add_package libpam-runtime
+add_package login
+add_package gnupg
+add_package dirmngr
+add_package gnupg-l10n
+add_package gnupg-utils
+add_package gpg-wks-client
+add_package gpg-wks-server
+add_package gpgsm
 
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Finalizing Repository"
@@ -208,6 +227,7 @@ clear
 
 debootstrap --no-check-gpg jammy /test http://localhost/kslinux
 cp -r /test.tmp /test/pkgs
+cp /dak.dev/keys/.no-key /test/.no-key
 
 # cat > /test1/etc/passwd << "EOF"
 # root:x:0:0:root:/root:/bin/bash
