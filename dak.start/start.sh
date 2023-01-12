@@ -62,7 +62,7 @@ cd /home/dak
 mkdir /test.tmp
 
 OK=0
-ALL=116
+ALL=121
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Importing Packages"
 
@@ -208,6 +208,11 @@ add_package gnupg-utils
 add_package gpg-wks-client
 add_package gpg-wks-server
 add_package gpgsm
+add_package lsb-base
+add_package libksba8
+add_package libldap-2.5-0
+add_package libsasl2-2
+add_package libsasl2-modules-db
 
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Finalizing Repository"
