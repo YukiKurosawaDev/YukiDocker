@@ -62,7 +62,7 @@ cd /home/dak
 mkdir /test.tmp
 
 OK=0
-ALL=121
+ALL=126
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Importing Packages"
 
@@ -94,6 +94,7 @@ function add_package()
 
 add_package adduser
 add_package apt
+add_package apt-utils
 add_package base-files
 add_package bash
 add_package coreutils
@@ -213,6 +214,10 @@ add_package libksba8
 add_package libldap-2.5-0
 add_package libsasl2-2
 add_package libsasl2-modules-db
+add_package file
+add_package libmagic1
+add_package libmagic-mgc
+add_package dialog
 
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Finalizing Repository"
