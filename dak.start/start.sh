@@ -278,7 +278,7 @@ cp /dak.dev/keys/.no-key.gpg /test/etc/apt/trusted.gpg.d/no-key.gpg
 
 # touch /test/etc/shadow
 
-chroot /test /bin/bash
+arch-chroot /test /bin/bash
 
 #nano /test/debootstrap/debootstrap.log
 

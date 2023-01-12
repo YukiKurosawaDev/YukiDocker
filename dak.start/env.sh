@@ -78,4 +78,4 @@ SHOW_MIXPROGRESS "Generate Package Source $1 ... " "DONE" "Generate Repo Release
 clear
 
 cp -r /test.tmp /test/pkgs
-chroot /test /bin/bash -c "apt --allow-unauthenticated update && apt --allow-unauthenticated install $2"
+arch-chroot /test /bin/bash -c "apt --allow-unauthenticated update && apt --allow-unauthenticated install $2"

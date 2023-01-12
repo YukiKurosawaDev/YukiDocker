@@ -48,6 +48,10 @@ echo -n "INSTALLING debootstrap ... "
 apt install debootstrap -y 1>/dev/null 2>&1
 echo DONE
 
+echo -n "INSTALLING arch-install-scripts ... "
+apt install arch-install-scripts -y 1>/dev/null 2>&1
+echo DONE
+
 echo -n "INSTALLING dak Dependencies ... "
 apt install python3-psycopg2 python3-pip python3-apt gnupg dpkg-dev lintian \
 binutils-multiarch python3-yaml less python3-ldap python3-pyrss2gen python3-rrdtool \
