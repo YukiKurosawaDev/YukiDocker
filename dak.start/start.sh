@@ -239,6 +239,8 @@ debootstrap --no-check-gpg jammy /test http://localhost/kslinux
 cp -r /test.tmp /test/pkgs
 cp /dak.dev/keys/.no-key.gpg /test/etc/apt/trusted.gpg.d/no-key.gpg
 
+mkdir -p /run/shm
+
 # cat > /test1/etc/passwd << "EOF"
 # root:x:0:0:root:/root:/bin/bash
 # bin:x:1:1:bin:/dev/null:/usr/bin/false
