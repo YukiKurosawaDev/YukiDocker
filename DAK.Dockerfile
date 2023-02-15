@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:rolling
 
 LABEL MAINTAINER="YukiKurosawaDev"
 LABEL VERSION="22.04-dak-20230208-kslinux"
