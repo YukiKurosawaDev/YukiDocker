@@ -62,7 +62,7 @@ cd /home/dak
 mkdir /test.tmp
 
 OK=0
-ALL=$(cat /etc/apt/sources.list | wc -l)
+ALL=$(cat /dak.start/bootstrap.list | wc -l)
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Importing Packages"
 
