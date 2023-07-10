@@ -92,7 +92,11 @@ function add_package()
     sleep 1
 }
 
-bash bootstrap.sh
+for pkg_cmd in `cat /dak.start/bootstrap.list`; do
+    add_package $pkg_cmd
+done
+
+exit 1
 
 BTITLE="Bootstrap Packages to DAK"
 TITLE="Finalizing Repository"
