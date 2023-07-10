@@ -1,3 +1,4 @@
 *.gpg
 *.asc
 *.pgp
+*.tar.*z*
