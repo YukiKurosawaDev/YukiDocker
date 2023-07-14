@@ -16,7 +16,7 @@ echo DONE
 
 echo -n "CONFIGURING dak ... "
 sudo addgroup ftpmaster 1>/dev/null 2>&1
-sudo adduser dak --disabled-login --ingroup ftpmaster --shell /bin/bash 1>/dev/null 2>&1
+sudo adduser dak --disabled-login --ingroup ftpmaster --shell /bin/bash --gecos "" 1>/dev/null 2>&1
 sudo mkdir /etc/dak 1>/dev/null 2>&1
 sudo mkdir /srv/dak 1>/dev/null 2>&1
 sudo mkdir /srv/dak/etc 1>/dev/null 2>&1
