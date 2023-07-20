@@ -99,7 +99,7 @@ function add_package()
 OK=0
 ALL=$(cat /dak.start/bootstrap.list | wc -l)
 BTITLE="Bootstrap Sources to DAK"
-TITLE="Importing Sourcess"
+TITLE="Importing Sources"
 
 for pkg_cmd in `cat /dak.start/bootstrap.list`; do
     add_source $pkg_cmd
