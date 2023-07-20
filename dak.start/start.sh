@@ -61,36 +61,54 @@ clear
 cd /home/dak
 mkdir /test.tmp
 
-OK=0
-ALL=$(cat /dak.start/bootstrap.list | wc -l)
-BTITLE="Bootstrap Packages to DAK"
-TITLE="Importing Packages"
+function add_source()
+{
+    SHOW_MIXPROGRESS "Download source $1 ... " "PROCESSING" "Import source $1 ... " "WAITING"
+    $APTS $1 1>/dev/null 2>&1
+    SHOW_MIXPROGRESS "Download source $1 ... " "DONE" "Import source $1 ... " "WAITING"
+    
+    SHOW_MIXPROGRESS "Download source $1 ... " "DONE" "Import source $1 ... " "PROCESSING"
+    $DI *.dsc
+    
+    SHOW_MIXPROGRESS "Download source $1 ... " "DONE" "Import source $1 ... " "DONE"
+    rm -rvf *.* 1>/dev/null 2>&1
+    OK=$[$OK+1]
+    sleep 1
+}
 
 function add_package()
 {
-    SHOW_MIXPROGRESS "Download package $1 ... " "PROCESSING" "Download source $1 ... " "WAITING" "Import source $1 ... " "WAITING" "Import package $1 ... " "WAITING"
+    SHOW_MIXPROGRESS "Download package $1 ... " "PROCESSING" "Import package $1 ... " "WAITING"
     $APT $1 1>/dev/null 2>&1
     DEBO=$(ls *.deb)
 
-    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Download source $1 ... " "PROCESSING" "Import source $1 ... " "WAITING" "Import package $1 ... " "WAITING"
-    $APTS $1 1>/dev/null 2>&1
-    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Download source $1 ... " "DONE" "Import source $1 ... " "WAITING" "Import package $1 ... " "WAITING"
-    
     #echo $DEBO
     DEB=$(echo $DEBO| sed -e s/%3a/-/)
     #echo $DEB
     mv $DEBO $DEB 1>/dev/null 2>&1
     cp $DEB /test.tmp/$DEB
 
-    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Download source $1 ... " "DONE" "Import source $1 ... " "PROCESSING" "Import package $1 ... " "WAITING"
-    $DI *.dsc
-    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Download source $1 ... " "DONE" "Import source $1 ... " "DONE" "Import package $1 ... " "PROCESSING"
+    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Import package $1 ... " "PROCESSING"
     $DI *.deb
-    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Download source $1 ... " "DONE" "Import source $1 ... " "DONE" "Import package $1 ... " "DONE"
+    SHOW_MIXPROGRESS "Download package $1 ... " "DONE" "Import package $1 ... " "DONE"
     rm -rvf *.* 1>/dev/null 2>&1
     OK=$[$OK+1]
     sleep 1
 }
+
+OK=0
+ALL=$(cat /dak.start/bootstrap.list | wc -l)
+BTITLE="Bootstrap Sources to DAK"
+TITLE="Importing Sourcess"
+
+for pkg_cmd in `cat /dak.start/bootstrap.list`; do
+    add_source $pkg_cmd
+done
+
+OK=0
+ALL=$(cat /dak.start/bootstrap.list | wc -l)
+BTITLE="Bootstrap Packages to DAK"
+TITLE="Importing Packages"
 
 for pkg_cmd in `cat /dak.start/bootstrap.list`; do
     add_package $pkg_cmd
