@@ -20,7 +20,7 @@ Ubuntu belongs to <a href="https://canonical.com/">Canonical Ltd</a><br/>
 
 ## Images and Tags
 ----------------------
-System Version: <code>22.04</code><br/>
+System Version: <code>22.04.2</code><br/>
 System CodeName: Jammy JellyFish (<code>jammy</code>)<br/>
 Supported Architectures: <code>amd64</code><br/>
 
