@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 
 LABEL MAINTAINER="YukiKurosawaDev"
-LABEL VERSION="22.04.2-dak-20230721-kslinux"
+LABEL VERSION="22.04.3-dak-20230817-kslinux"
 
 # DEFINE PORTS
 ## POSTGRESQL
