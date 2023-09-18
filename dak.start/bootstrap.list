@@ -101,6 +101,7 @@ gpgsm
 gpgv
 grep
 groff-base
+gzip
 hdparm
 htop
 info
