@@ -1,3 +1,4 @@
+
 adduser
 apparmor
 apport
@@ -18,6 +19,7 @@ binutils-common
 binutils-x86-64-linux-gnu
 bolt
 bsdextrautils
+bsdutils
 btrfs-progs
 build-essential
 busybox-initramfs
@@ -103,6 +105,7 @@ grep
 groff-base
 gzip
 hdparm
+hostname
 htop
 info
 init
@@ -117,6 +120,7 @@ iputils-ping
 iputils-tracepath
 irqbalance
 isc-dhcp-client
+isc-dhcp-common
 iso-codes
 kbd
 keyboard-configuration
@@ -138,9 +142,11 @@ libargon2-1
 libasan6
 libassuan0
 libatasmart4
+libatm1
 libatomic1
 libattr1
 libaudit-common
+libaudit1
 libaudit1
 libbinutils
 libblkid1
@@ -157,10 +163,12 @@ libbrotli1
 libbsd0
 libbz2-1.0
 libc-bin
+libc-bin
 libc-dev-bin
 libc-devtools
 libc6
 libc6-dev
+libcap-ng0
 libcap-ng0
 libcap2
 libcap2-bin
@@ -203,6 +211,7 @@ libfido2-1
 libfile-fcntllock-perl
 libfontconfig1
 libfreetype6
+libfribidi0
 libfuse3-3
 libfwupd2
 libfwupdplugin5
@@ -293,16 +302,19 @@ libnpth0
 libnsl-dev
 libnsl2
 libnspr4
+libnss-systemd
 libnss3
 libntfs-3g89
 libnuma1
 libopeniscsiusr
 libp11-kit0
 libpackagekit-glib2-18
+libpam-cap
 libpam-modules
 libpam-modules-bin
 libpam-runtime
 libpam-systemd
+libpam0g
 libpam0g
 libparted-fs-resize0
 libparted2
@@ -320,6 +332,7 @@ libpopt0
 libproc-processtable-perl
 libprocps8
 libpsl5
+libpython3-stdlib
 libpython3-stdlib
 libpython3.10
 libpython3.10-minimal
@@ -437,6 +450,7 @@ needrestart
 netbase
 netcat-openbsd
 netplan.io
+networkd-dispatcher
 nftables
 ntfs-3g
 open-iscsi
@@ -570,6 +584,8 @@ strace
 sudo
 systemd
 systemd-sysv
+systemd-timesyncd
+sysvinit-utils
 tar
 tcl
 tcl8.6
@@ -611,6 +627,7 @@ vim-tiny
 wget
 whiptail
 xauth
+xdg-user-dirs
 xfsprogs
 xkb-data
 xxd
