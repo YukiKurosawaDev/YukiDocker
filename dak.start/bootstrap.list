@@ -1,6 +1,6 @@
-
 adduser
 apparmor
+apparmor=3.0.4-2ubuntu2
 apport
 apport-symptoms
 apt
@@ -172,6 +172,7 @@ libcap-ng0
 libcap-ng0
 libcap2
 libcap2-bin
+libcap2=1:2.44-1build3
 libcbor0.8
 libcc1-0
 libcom-err2
@@ -575,6 +576,7 @@ sensible-utils
 sg3-utils
 sg3-utils-udev
 shared-mime-info
+snapd
 snapd
 software-properties-common
 sosreport
