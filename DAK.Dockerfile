@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:22.04
 
 LABEL MAINTAINER="YukiKurosawaDev"
 LABEL VERSION="22.04.3-dak-20230817-kslinux"
